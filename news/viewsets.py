@@ -1,6 +1,6 @@
 from rest_framework import viewsets
 
-from .models import Post, Author
+from .models import *
 from .serializer import PostSerializer, AuthorSerializer
 
 
@@ -9,5 +9,5 @@ class PostViewSet(viewsets.ModelViewSet):
 	serializer_class = PostSerializer
 
 class AuthorViewSet(viewsets.ModelViewSet):
-	queryset = Author.objects.all()
+	queryset = Autor.objects.all()
 	serializer_class = AuthorSerializer

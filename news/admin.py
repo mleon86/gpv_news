@@ -1,8 +1,15 @@
 from django.contrib import admin
 
-from .models import Post, Author
+from .models import *
 # Register your models here.
 
+class PostAdmin(admin.ModelAdmin):
+	search_fields = ['titulo']
+	list_display = ('titulo', 'fecha_creacion')
 
-admin.site.register(Post)
-admin.site.register(Author)
+class AutorAdmin(admin.ModelAdmin):
+	search_fields = ['nombre']
+
+
+admin.site.register(Post, PostAdmin)
+admin.site.register(Autor, AutorAdmin)

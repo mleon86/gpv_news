@@ -15,9 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from news.views import Home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('home/', Home, name = 'index'),
+
     path('api/v1.0/', include('news.urls')),
-    path('api_legion/v1.0/', include('legion.urls'))
+    path('api/v1.0/', include('legion.urls')),
+    path('api/v1.0/', include('recursos.urls')),
 ]

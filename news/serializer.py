@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Post, Author
+from .models import *
 
 class PostSerializer(serializers.ModelSerializer):
 	class Meta:
@@ -8,5 +8,5 @@ class PostSerializer(serializers.ModelSerializer):
 
 class AuthorSerializer(serializers.ModelSerializer):
 	class Meta:
-		model = Author
+		model = Autor
 		fields = '__all__'

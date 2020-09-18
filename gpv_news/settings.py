@@ -42,9 +42,12 @@ INSTALLED_APPS = [
     'django_countries',
     'rest_framework',
     'rest_framework_gis',
+    'ckeditor',
+    'ckeditor_uploader',
     'phone_field',
     'news',
     'legion',
+    'recursos',
 ]
 
 MIDDLEWARE = [
@@ -62,7 +65,7 @@ ROOT_URLCONF = 'gpv_news.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -130,3 +133,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = "/home/marcos/proyecto_gpv/gpv_news/static/"
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+MEDIA_URL = '/media/' 
+MEDIA_ROOT = 'media/'
