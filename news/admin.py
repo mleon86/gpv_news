@@ -5,7 +5,7 @@ from .models import *
 
 class PostAdmin(admin.ModelAdmin):
 	search_fields = ['titulo']
-	list_display = ('titulo', 'fecha_creacion')
+	list_display = ('fecha_creacion', 'titulo', 'autor')
 
 class AutorAdmin(admin.ModelAdmin):
 	search_fields = ['nombre']
