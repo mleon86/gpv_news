@@ -14,12 +14,12 @@ from ckeditor.fields import RichTextField
 #Datos de las organizaciones
 
 class Leccion(models.Model):
-	title = models.CharField(max_length=150)
+	titulo = models.CharField("Titulo de la lección",max_length=150)
 	body = RichTextField()
-	image = models.ImageField(upload_to="post_image", null=True)
-	video_leccion = models.CharField(max_length = 150)
-	create_at = models.DateTimeField(auto_now=True, auto_now_add=False, null=True)
-	update_at = models.DateTimeField(auto_now=False, auto_now_add=True, null=True)
+	image = models.CharField("Link a la Imagen",max_length=150, null=True)
+	video_leccion = models.CharField("link a video", max_length = 150)
+	create_at = models.DateTimeField("Fecha de creación", auto_now=True, auto_now_add=False, null=True)
+	update_at = models.DateTimeField("Fecha de actualización",auto_now=False, auto_now_add=True, null=True)
 
 	
 	class Meta:
@@ -28,14 +28,14 @@ class Leccion(models.Model):
 		ordering = ['create_at']
 
 	def __str__(self):
-		return '%s %s %s' % (self.title, self.create_at, self.update_at)
+		return '%s %s %s' % (self.titulo, self.create_at, self.update_at)
 
 class Curso(models.Model):
-	title = models.CharField(max_length = 150)
-	comentario = models.CharField(max_length = 200)
-	video_invitacion = models.CharField(max_length = 150)
-	create_at = models.DateTimeField(auto_now=True, auto_now_add=False, null=True)
-	update_at = models.DateTimeField(auto_now=False, auto_now_add=True, null=True)
+	titulo = models.CharField("Titulo del curso", max_length = 150)
+	comentario = models.CharField("Comentario", max_length = 200)
+	video_invitacion = models.CharField("link al video de invitación",max_length = 150)
+	create_at = models.DateTimeField("Fecha de creación", auto_now=True, auto_now_add=False, null=True)
+	update_at = models.DateTimeField("Fecha de actualización",auto_now=False, auto_now_add=True, null=True)
 	lecciones = models.ManyToManyField(Leccion)
 
 	class Meta:
@@ -44,6 +44,6 @@ class Curso(models.Model):
 		ordering = ['create_at']
 
 	def __str__(self):
-		return '%s %s %s' % (self.title, self.create_at, self.update_at)
+		return '%s %s %s' % (self.titulo, self.create_at, self.update_at)
 
 # Create your models here.

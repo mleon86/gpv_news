@@ -10,10 +10,10 @@ from phone_field import PhoneField
 
 #Datos de las organizaciones
 class Organizacion(models.Model):
-	id = models.AutoField(primary_key = True)
-	nombre = models.CharField(max_length = 200, blank = False, null = False)
-	telefono_organizacion = PhoneField(blank=True, help_text='su numero de contacto')
-	observacion = models.TextField(blank = False, null = False)
+	id = models.AutoField("identificador",primary_key = True)
+	nombre = models.CharField("Nombre", max_length = 200, blank = False, null = False)
+	telefono_organizacion = models.CharField("Teléfono", max_length = 20, blank=True, help_text='su numero de contacto')
+	observacion = models.TextField("Observación",blank = False, null = False)
 
 	class Meta:
 		verbose_name = 'Organizacion'
@@ -21,21 +21,21 @@ class Organizacion(models.Model):
 		ordering = ['nombre']
 
 	def __str__(self):
-		return '%s %s %s' % (self.nombre, self.contacto, self.observacion)
+		return '%s %s %s' % (self.nombre, self.telefono_organizacion, self.observacion)
 
 #Datos de las Personas
 class Persona(models.Model):
 
-	nombre = models.CharField(max_length = 50, blank = False, null = False)
-	apellido = models.CharField(max_length = 50, blank = False, null = False)
-	ci_nro = models.CharField(max_length = 8, blank = False, null = False, primary_key = True)
-	telefono_persona = PhoneField(blank=True, help_text='su numero de contacto')
+	nombre = models.CharField("Nombre",max_length = 50, blank = False, null = False)
+	apellido = models.CharField("Apellido", max_length = 50, blank = False, null = False)
+	ci_nro = models.CharField("Cedula de identidad", max_length = 8, blank = False, null = False, primary_key = True)
+	telefono_persona = models.CharField("Teléfono", max_length = 20, blank=True, help_text='su numero de contacto')
 	pais = CountryField()
 	fecha_nacimiento = models.DateField()
 	ubicacion = models.PointField()
-	direccion = models.CharField(max_length = 100, blank = False, null = False)
-	observacion = models.TextField(blank = False, null = False)
-	organizacion = models.ForeignKey(Organizacion, on_delete = models.CASCADE)
+	direccion = models.CharField("Direccion",max_length = 100, blank = False, null = False)
+	observacion = models.TextField("Observacion",blank = False, null = False)
+	organizacion = models.ForeignKey(Organizacion, blank = True, on_delete = models.CASCADE)
 
 
 	class Meta:
