@@ -23,7 +23,7 @@ urlpatterns = [
     path('', Inicio.as_view(), name = 'index'),
     path('', include(('news.urls', 'news'))),
     path('accounts/login/', Login.as_view(), name = 'login')
-    path('logout/', login_required(logoutUsuario), name = 'logout')
+    #path('logout/', login_required(logoutUsuario), name = 'logout')
 
 
 
