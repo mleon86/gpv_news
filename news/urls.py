@@ -4,11 +4,11 @@ from rest_framework import routers
 
 from .viewsets import PostViewSet, AuthorViewSet
 
-from .views import home, noticias, eventos, legion, recursos, contacto, detallePost
+from .views import home, noticias, eventos, legion, recursos, contacto, detallePost, Inicio
 
 urlpatterns = [
 	
-	path('', home, name = 'index'),
+	path('', Inicio.as_view(), name = 'index'),
     path('noticias/', noticias, name = 'noticias'),
     path('eventos/', eventos, name = 'eventos'),
     path('legion/', legion, name = 'legion'),

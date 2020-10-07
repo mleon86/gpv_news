@@ -15,11 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from news.views import home, noticias
+from news.views import Inicio, noticias
+from usuario.views import Login
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', Inicio.as_view(), name = 'index'),
     path('', include(('news.urls', 'news'))),
+    path('accounts/login/', Login.as_view(), name = 'login')
+    path('logout/', login_required(logoutUsuario), name = 'logout')
+
+
 
     #path('api/v1.0/', include('news.urls')),
     #path('api/v1.0/', include('legion.urls')),
